@@ -1,0 +1,40 @@
+/* Custom specialized styles for App */
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.movie-row-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+.movie-row-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.movie-row-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+.movie-row-scroll:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+.movie-row-scroll::-webkit-scrollbar-thumb:hover {
+  background: #eab308;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(15, 15, 17, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-nav {
+  background: linear-gradient(180deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 60%, transparent 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}

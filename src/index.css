@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+/* Global Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffb400;
+  /* yellow-500 equivalent */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #333 #000;
+}
+
+/* Specific utilities */
+@utility no-scrollbar {
+  -webkit-overflow-scrolling: touch;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility movie-row-scroll {
+  &::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+  &:hover::-webkit-scrollbar-thumb {
+    background: #444;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #ffb400;
+  }
+}
