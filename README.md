@@ -127,8 +127,8 @@ movie-love/
 
 | Component | Platform         | URL       |
 | --------- | ---------------- | --------- |
-| Frontend  | Vercel / Netlify | [Add URL] |
-| Backend   | Render / Railway | [Add URL] |
+| Frontend  | Vercel           |           |
+| Backend   | Render           |           |
 | Database  | MongoDB Atlas    | Cloud     |
 
 ---
