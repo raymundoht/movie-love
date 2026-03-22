@@ -1,128 +1,265 @@
-# 🎬 Movie Love
+# 🎬 Movie Love - Distributed Movie Platform
 
-Aplicación web desarrollada con **React + Vite + Tailwind CSS** que permite explorar, visualizar y gestionar contenido relacionado con películas. Este proyecto está enfocado en ofrecer una experiencia moderna, rápida e interactiva para los usuarios.
+**Movie Love** is a full-stack distributed web application that allows users to explore movies, get recommendations, and manage their favorite content.
+
+The system is built using a **modern client-server architecture**, integrating a custom backend API, external movie services, and a cloud database.
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## 🚀 Technologies Used
+
+### Frontend
 
 * ⚛️ React
 * ⚡ Vite
 * 🎨 Tailwind CSS
+
+### Backend
+
+* 🟢 Node.js
+* 🚏 Express.js
+
+### Database
+
+* 🍃 MongoDB Atlas (Cloud)
+
+### Tools
+
 * 🧹 ESLint
+* 🌐 Axios / Fetch API
 
 ---
 
-## 📂 Estructura del proyecto
+## 🧠 System Overview
+
+Movie Love is designed as a **distributed system composed of three main components**:
+
+1. **Frontend Client**
+2. **Backend API Service**
+3. **Database (MongoDB)**
+
+Additionally, the backend integrates **external movie APIs** to enrich the application with real-time data.
+
+---
+
+## 🏗️ Architecture
+
+```bash
+Frontend (React)
+      ↓
+Backend API (Node.js + Express)
+      ↓
+ ┌───────────────┬────────────────┐
+ ↓               ↓                ↓
+MongoDB     External APIs     External APIs
+(Database)  (Movies Data)     (Recommendations)
+```
+
+### 🔁 Communication Flow
+
+* The frontend sends HTTP requests to the backend
+* The backend:
+
+  * Processes business logic
+  * Fetches data from external APIs
+  * Stores and retrieves data from MongoDB
+* The backend responds with structured JSON data
+
+---
+
+## 📂 Project Structure
 
 ```bash
 movie-love/
 │
-├── public/                # Archivos estáticos (imágenes, íconos, etc.)
+├── client/                 # Frontend (React + Vite)
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │
-├── src/                   # Código fuente principal
-│   ├── assets/            # Recursos (imágenes, estilos, etc.)
-│   ├── components/        # Componentes reutilizables
-│   ├── pages/             # Vistas o páginas principales
-│   ├── App.jsx            # Componente raíz
-│   ├── main.jsx           # Punto de entrada de la app
+├── server/                 # Backend (Node.js + Express)
+│   ├── routes/             # API routes
+│   ├── controllers/        # Business logic
+│   ├── models/             # MongoDB schemas
+│   ├── config/             # DB connection
+│   └── index.js            # Entry point
 │
-├── index.html             # HTML principal
-├── package.json           # Dependencias y scripts
-├── vite.config.js         # Configuración de Vite
-├── tailwind.config.js     # Configuración de Tailwind
-├── postcss.config.js      # Configuración de PostCSS
-├── eslint.config.js       # Configuración de ESLint
-└── .gitignore             # Archivos ignorados por Git
+├── package.json
+├── README.md
+└── .gitignore
 ```
 
 ---
 
-## 🧠 ¿Qué es este proyecto?
+## ⚙️ How It Works
 
-**Movie Love** es una aplicación frontend que permite a los usuarios interactuar con información de películas, como:
+### 1. Frontend
 
-* Visualizar listados de películas
-* Ver detalles específicos
-* Navegar entre diferentes vistas
-* (Opcional) Conectarse a una API para obtener datos dinámicos
+* Displays movie data
+* Handles user interactions
+* Sends requests to backend API
 
-El objetivo principal es practicar y demostrar el uso de tecnologías modernas para el desarrollo web.
+### 2. Backend
 
----
+* Exposes REST API endpoints:
 
-## ⚙️ ¿Cómo funciona?
+  * `GET /api/movies`
+  * `GET /api/recommendations`
+  * `POST /api/favorites`
+* Connects to external APIs
+* Manages application logic
 
-1. **Inicio de la aplicación**
+### 3. Database
 
-   * El archivo `main.jsx` monta la aplicación en el DOM.
-   * `App.jsx` actúa como contenedor principal.
+* Stores:
 
-2. **Componentes**
-
-   * Los componentes en `src/components` son reutilizables.
-   * Se encargan de mostrar información como tarjetas de películas, listas, etc.
-
-3. **Páginas**
-
-   * En `src/pages` se definen las vistas principales.
-   * Cada página representa una sección de la app.
-
-4. **Estilos**
-
-   * Se utiliza Tailwind CSS para estilos rápidos y responsivos.
-
-5. **Build y rendimiento**
-
-   * Vite permite un desarrollo rápido con recarga en caliente (HMR).
-   * Optimiza el proyecto para producción.
+  * Favorite movies
+  * User-related data
+* Ensures persistent storage
 
 ---
 
-## ▶️ Instalación y uso
+## 🌐 Deployment
 
-### 1. Clonar el repositorio
+| Component | Platform         | URL       |
+| --------- | ---------------- | --------- |
+| Frontend  | Vercel / Netlify | [Add URL] |
+| Backend   | Render / Railway | [Add URL] |
+| Database  | MongoDB Atlas    | Cloud     |
+
+---
+
+## ▶️ Installation & Setup
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/tu-usuario/movie-love.git
+git clone https://github.com/raymundoht/movie-love.git
 cd movie-love
 ```
 
-### 2. Instalar dependencias
+---
+
+### 2. Install dependencies
+
+#### Frontend
 
 ```bash
+cd client
 npm install
 ```
 
-### 3. Ejecutar el proyecto
+#### Backend
 
 ```bash
+cd ../server
+npm install
+```
+
+---
+
+### 3. Environment Variables
+
+Create a `.env` file inside `/server`:
+
+```bash
+MONGODB_URI=your_mongodb_connection
+API_KEY=your_movie_api_key
+PORT=5000
+```
+
+---
+
+### 4. Run the project
+
+#### Backend
+
+```bash
+cd server
 npm run dev
 ```
 
-### 4. Construir para producción
+#### Frontend
 
 ```bash
+cd client
+npm run dev
+```
+
+---
+
+## 📌 Available Scripts
+
+### Frontend
+
+```bash
+npm run dev
 npm run build
+npm run preview
+npm run lint
 ```
 
----
-
-## 📌 Scripts disponibles
+### Backend
 
 ```bash
-npm run dev      # Inicia el servidor de desarrollo
-npm run build    # Genera la versión de producción
-npm run preview  # Previsualiza la build
-npm run lint     # Ejecuta ESLint
+npm run dev
+npm start
 ```
 
 ---
 
-## 🛠️ Posibles mejoras
+## 📡 API Endpoints
 
-* Integración con API de películas (como TMDB)
-* Sistema de favoritos ❤️
-* Buscador de películas 🔍
-* Autenticación de usuarios 🔐
-* Modo oscuro 🌙
+| Method | Endpoint             | Description         |
+| ------ | -------------------- | ------------------- |
+| GET    | /api/movies          | Get movie list      |
+| GET    | /api/recommendations | Get recommendations |
+| POST   | /api/favorites       | Save favorite movie |
+
+---
+
+## 🛠️ Features
+
+* 🎬 Browse movies
+* 🔍 Search functionality
+* ❤️ Save favorites
+* ⚡ Fast and responsive UI
+* 🔗 Integration with external APIs
+* 💾 Persistent storage with MongoDB
+
+---
+
+## 📊 Project Goals
+
+* Build a distributed system with real communication
+* Implement scalable backend architecture
+* Integrate third-party APIs
+* Deploy a production-ready application
+
+---
+
+## 🔮 Future Improvements
+
+* 🔐 User authentication (JWT)
+* 📊 Advanced recommendations system
+* ⚡ Caching layer (Redis)
+* 📱 Mobile responsiveness improvements
+* 🌙 Dark mode
+
+---
+
+## 📎 Repository
+
+👉 https://github.com/raymundoht/movie-love
+
+---
+
+## 👨‍💻 Author
+
+Developed by **Raymundo Hernández**
+
+---
